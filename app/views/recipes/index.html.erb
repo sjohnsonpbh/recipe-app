@@ -1,4 +1,3 @@
-index page
 <h1>Recipes</h1>
 
 <% @recipes.each do |recipe| %>
@@ -7,7 +6,7 @@ index page
 
   
   <div>
-    <%= link_to  edit_recipe_path(recipe) do %>
+    <%= link_to  recipe_path(recipe) do %>
       <%= image_tag recipe.recipe_photo_path, height:200, style: "border: 1px solid black"%> 
     <% end %>
   </div>
