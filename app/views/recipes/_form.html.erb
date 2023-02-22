@@ -1,0 +1,40 @@
+<% if @recipe.errors.any? %>
+  <% @recipe.errors.full_messages.each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+<% end %>
+
+<%= form_with(model: @recipe) do |form| %>
+  
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <div>
+    <%= form.label :ingredients %>
+    <%= form.text_area :ingredients %>
+  </div>
+  <div>
+    <%= form.label :prep_time %>
+    <%= form.text_area :prep_time %>
+  </div>
+  <div>
+    <%= form.label :cook_time %>
+    <%= form.text_area :cook_time %>
+  </div>
+  <div>
+    <%= form.label :thaw_time %>
+    <%= form.text_area :thaw_time %>
+  </div>
+  <div>
+    <%= form.label :recipe_photo_path %>
+    <%= form.text_area :recipe_photo_path %>
+  </div>
+   <div>
+    <%= form.submit  %>   
+  </div>
+<% end %>
