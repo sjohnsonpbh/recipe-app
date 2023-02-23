@@ -6,7 +6,6 @@ class RecipesController < ApplicationController
   end
   
   def home 
-    
   end
 
   # GET - request page with form to create a recipe
@@ -17,7 +16,6 @@ class RecipesController < ApplicationController
   # POST - create recipe
   def create 
     @recipe = Recipe.new(recipe_params)
-
     if @recipe.save 
       flash[:notice] = "Recipe successfully saved"
       redirect_to @recipe
@@ -28,8 +26,7 @@ class RecipesController < ApplicationController
   end
 
   # GET - Edit Recipe
-  def edit
-  
+  def edit  
   end
 
   def update 
@@ -43,7 +40,6 @@ class RecipesController < ApplicationController
 
   # GET - show a recipe 
   def show
-     
   end
 
   def destroy 
