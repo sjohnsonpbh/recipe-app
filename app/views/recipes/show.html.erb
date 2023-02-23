@@ -9,6 +9,19 @@
   <div>
     <%= image_tag @recipe.recipe_photo_path, height:200, style: "border: 1px solid black"%> 
   </div>
+  <%
+=begin%>
+ <div>
+  <%= image_tag @recipe.recipe_photo_path, class:"pop",  :data => { :target => "#imagemodal" } %>
+  </div> 
+<%
+=end%>
+
+<div>
+  <% @recipe.categories.each do |category| %>
+    <%= category.name %>
+  <% end %>
+</div>
 
   <%= link_to "Edit", edit_recipe_path(@recipe) %>
   <%= button_to "Destroy", @recipe, method: :delete %>

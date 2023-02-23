@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  
+
   def index 
     @recipes = Recipe.all   
   end
@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
 
     if @recipe.save 
       flash[:notice] = "Recipe successfully saved"
-      redirect_to recipes_path
+      redirect_to @recipe
     else 
       flash[:notice] = "There was an error saving the recipe."
       render :new, status: :unprocessable_entity 
@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
 
   def update 
     if @recipe.update(recipe_params)
-       redirect_to recipes_path
+       redirect_to @recipe
     else  
       flash[:notice] = "There was an error updating the recipe."
       render :edit, status: :unprocessable_entity 
@@ -53,7 +53,7 @@ class RecipesController < ApplicationController
 
   private 
   def recipe_params 
-    params.require(:recipe).permit(:title, :description, :prep_time, :cook_time, :ingredients, :recipe_photo_path, :thaw_time, :user_id)
+    params.require(:recipe).permit(:title, :description, :prep_time, :cook_time, :ingredients, :recipe_photo_path, :thaw_time, :user_id, category_ids: [])
   end
 
   def set_recipe 

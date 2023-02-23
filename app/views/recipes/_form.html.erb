@@ -34,6 +34,10 @@
     <%= form.label :recipe_photo_path %>
     <%= form.text_area :recipe_photo_path %>
   </div>
+  <div>
+    <%= form.label :category_ids %>
+    <%= form.collection_select(:category_ids, Category.all, :id, :name, {}, {multiple: true})%>
+  </div>
    <div>
     <%= form.submit  %>   
   </div>
