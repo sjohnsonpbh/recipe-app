@@ -1,24 +1,18 @@
 <h1><%= @recipe.title %></h1>
-
   <% if @recipe.user %>
     <div><%= link_to "Recipe By: #{@recipe.user.username}", @recipe.user %></div>
   <% end %>
   <p><b>Description:</b> <%= @recipe.description %></p>
   <p><b>Ingredients:</b> <%= @recipe.ingredients %></p>
-  <p><b>Prep Time:</b> <%= @recipe.prep_time %> hour(s)</p>
-  <p><b>Cook Time:</b> <%= @recipe.cook_time %>hour(s)</p>
-  <p><b>Thaw Time:</b> <%= @recipe.thaw_time %>hour(s)</p>
+  <p><b>Prep Time:</b> <%= pluralize(@recipe.prep_time, "hour") %> <%= pluralize(@recipe.prep_time_minutes, "minute") %></p>
+  <p><b>Cook Time:</b> <%= pluralize(@recipe.cook_time, "hour") %> <%= pluralize(@recipe.cook_time_minutes, "minute") %></p>
+  <p><b>Thaw Time:</b> <%= pluralize(@recipe.thaw_time, "day") %></p>
+
 
   <div>
     <%= image_tag @recipe.recipe_photo_path, height:200, style: "border: 1px solid black"%> 
   </div>
-  <%
-=begin%>
- <div>
-  <%= image_tag @recipe.recipe_photo_path, class:"pop",  :data => { :target => "#imagemodal" } %>
-  </div> 
-<%
-=end%>
+
 
 <div>
   <% @recipe.categories.each do |category| %>

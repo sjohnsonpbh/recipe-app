@@ -15,8 +15,8 @@
   <body>
     <header class="container">
       <div id="flash">
-      <% if flash[:notice] %>
-        <%=  flash[:notice] %>
+      <% flash.each do |key, value| %>
+        <div class="flash alert<%= alert_class(key) %>"><%= value %></div>
       <% end %>    
       <%= render 'shared/nav' %>
       </div>
