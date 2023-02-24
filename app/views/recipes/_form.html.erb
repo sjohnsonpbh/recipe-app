@@ -20,7 +20,14 @@
   </div>
   <div>
     <%= form.label :prep_time %>
-    <%= form.text_area :prep_time %>
+    
+    <%= form.select :prep_time, [[1, 1], [2, 2], [3, 3], [4, 4]] %>
+    
+    <%
+=begin%>
+ <%= form.text_area :prep_time %> 
+<%
+=end%>
   </div>
   <div>
     <%= form.label :cook_time %>

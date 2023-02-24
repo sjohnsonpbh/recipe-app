@@ -1,5 +1,8 @@
 <h1><%= @recipe.title %></h1>
 
+  <% if @recipe.user %>
+    <div><%= link_to "Recipe By: #{@recipe.user.username}", @recipe.user %></div>
+  <% end %>
   <p><b>Description:</b> <%= @recipe.description %></p>
   <p><b>Ingredients:</b> <%= @recipe.ingredients %></p>
   <p><b>Prep Time:</b> <%= @recipe.prep_time %> hour(s)</p>
@@ -24,4 +27,9 @@
 </div>
 
   <%= link_to "Edit", edit_recipe_path(@recipe) %>
-  <%= button_to "Destroy", @recipe, method: :delete %>
+
+
+
+  <% if current_user == @recipe.user %>
+    <%= button_to "Destroy", @recipe, method: :delete %>
+  <% end %>

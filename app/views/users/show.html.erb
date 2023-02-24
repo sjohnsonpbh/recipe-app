@@ -1,0 +1,13 @@
+<h1><%= @user.username %> Recipes</h1>
+
+<% @user.recipes.each do |recipe| %>
+  <h3><%= link_to recipe.title, recipe_path(recipe) %></h3>
+  <p><b>Description:</b> <%= recipe.description %></p>
+
+  
+  <div>
+    <%= link_to  recipe_path(recipe) do %>
+      <%= image_tag recipe.recipe_photo_path, height:200, style: "border: 1px solid black"%> 
+    <% end %>
+  </div>
+<% end %>
