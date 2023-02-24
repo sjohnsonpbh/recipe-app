@@ -20,22 +20,15 @@
   </div>
   <div>
     <%= form.label :prep_time %>
-    
-    <%= form.select :prep_time, [[1, 1], [2, 2], [3, 3], [4, 4]] %>
-    
-    <%
-=begin%>
- <%= form.text_area :prep_time %> 
-<%
-=end%>
+    <%= form.select :prep_time, [[1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> hours <%= form.select :prep_time, [[1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> minutes
   </div>
   <div>
     <%= form.label :cook_time %>
-    <%= form.text_area :cook_time %>
+    <%= form.select :cook_time, [[1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> hours <%= form.select :prep_time, [[1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> minutes
   </div>
   <div>
     <%= form.label :thaw_time %>
-    <%= form.text_area :thaw_time %>
+    <%= form.select :thaw_time, [[1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> hours <%= form.select :prep_time, [[1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> minutes
   </div>
   <div>
     <%= form.label :recipe_photo_path %>

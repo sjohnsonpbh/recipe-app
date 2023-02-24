@@ -49,7 +49,7 @@ class RecipesController < ApplicationController
 
   private 
   def prep_time_set 
-    @prep_time_set = [[1, 1], [2, 2], [3, 3], [4, 4]]
+    prep_time_set = [[1, 1], [2, 2], [3, 3], [4, 4]]
   end
 
   def require_same_user 
