@@ -20,26 +20,34 @@
     </div>
     <div>
       <%= form.label :prep_time, class: "col-form-label"  %>
-      <%= form.select :prep_time, [[1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> hours <%= form.select :prep_time_minutes, [[1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> minutes
+      <%= form.select :prep_time, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> 
+      <%= "hour".pluralize(:prep_time) %> 
+      <%= form.select :prep_time_minutes, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> 
+      <%= "minute".pluralize(:prep_time_minutes) %>
     </div>
     <div>
       <%= form.label :cook_time, class: "col-form-label"  %>
-      <%= form.select :cook_time, [[1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> hours <%= form.select :cook_time_minutes, [[1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> minutes
+      <%= form.select :cook_time, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> 
+      <%= "hour".pluralize(:cook_time) %>  
+      <%= form.select :cook_time_minutes, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> 
+       <%= "minute".pluralize(:cook_time_minutes) %>
     </div>
     <div>
       <%= form.label :thaw_time, class: "col-form-label"  %>
-      <%= form.select :thaw_time, [[1, 1], [2, 2], [3, 3], [4, 4]] %> days 
+      <%= form.select :thaw_time, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4]] %> 
+      <%= "day".pluralize(@thaw_time.to_i) %> 
+       
     </div>
     <div>
       <%= form.label :recipe_photo_path, class: "col-form-label"  %>
-      <%= form.text_area :recipe_photo_path, class: "form-control" %>
+      <%= form.text_area :recipe_photo_path %>
     </div>
     <div>
       <%= form.label :category_ids, class: "col-form-label"  %>
       <%= form.collection_select(:category_ids, Category.all, :id, :name, {}, {multiple: true})%>
     </div>
     <div>
-      <%= form.submit  %>   
+      <%= form.submit class: 'btn btn-secondary' %>   
     </div>
   </div>
 <% end %>
