@@ -1,29 +1,40 @@
-<h1><%= @recipe.title %></h1>
-  <% if @recipe.user %>
-    <div><%= link_to "Recipe By: #{@recipe.user.username}", @recipe.user %></div>
-  <% end %>
-  <p><b>Description:</b> <%= @recipe.description %></p>
-  <p><b>Ingredients:</b> <%= @recipe.ingredients %></p>
-  <p><b>Prep Time:</b> <%= pluralize(@recipe.prep_time, "hour") %> <%= pluralize(@recipe.prep_time_minutes, "minute") %></p>
-  <p><b>Cook Time:</b> <%= pluralize(@recipe.cook_time, "hour") %> <%= pluralize(@recipe.cook_time_minutes, "minute") %></p>
-  <p><b>Thaw Time:</b> <%= pluralize(@recipe.thaw_time, "day") %></p>
 
+
+<div class="card" style="width: 25rem;">
+   <h5 class="card-title"><%= @recipe.title %></h5>
+  <%= image_tag @recipe.recipe_photo_path,  style: "border: 1px solid black"%> 
+  
+  <div class="card-body">
+   
+    <p class="card-header">
+      <% if @recipe.user %>
+        <div><%= link_to "Recipe By: #{@recipe.user.username}", @recipe.user %></div>
+      <% end %>
+    </p>
+  <p class="card-text"><b>Description:</b> <%= @recipe.description %></p>
+  <p class="card-text"><b>Ingredients:</b> <%= @recipe.ingredients %></p>
+  <p class="card-text"><b>Prep Time:</b> <%= pluralize(@recipe.prep_time, "hour") %> <%= pluralize(@recipe.prep_time_minutes, "minute") %></p>
+  <p class="card-text"><b>Cook Time:</b> <%= pluralize(@recipe.cook_time, "hour") %> <%= pluralize(@recipe.cook_time_minutes, "minute") %></p>
+  <p class="card-text"><b>Thaw Time:</b> <%= pluralize(@recipe.thaw_time, "day") %></p>
 
   <div>
-    <%= image_tag @recipe.recipe_photo_path, height:200, style: "border: 1px solid black"%> 
+    <b><%= "Category".pluralize(@recipe.categories.count) %>:</b>
+    <% @recipe.categories.each do |category| %>
+      <%= category.name %>
+    <% end %>
   </div>
-
-
-<div>
-  <% @recipe.categories.each do |category| %>
-    <%= category.name %>
+      <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary"%>
+  </div>
+   <% if current_user == @recipe.user %>
+    <%= button_to "Destroy", @recipe, method: :delete, class: "btn btn-danger" %>
   <% end %>
 </div>
 
-  <%= link_to "Edit", edit_recipe_path(@recipe) %>
 
 
 
-  <% if current_user == @recipe.user %>
-    <%= button_to "Destroy", @recipe, method: :delete %>
-  <% end %>
+
+
+
+
+ 

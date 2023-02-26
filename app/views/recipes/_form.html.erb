@@ -35,7 +35,7 @@
     <div>
       <%= form.label :thaw_time, class: "col-form-label"  %>
       <%= form.select :thaw_time, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4]] %> 
-      <%= "day".pluralize(@thaw_time.to_i) %> 
+      <%= "day".pluralize(:thaw_time) %> 
        
     </div>
     <div>
@@ -47,7 +47,8 @@
       <%= form.collection_select(:category_ids, Category.all, :id, :name, {}, {multiple: true})%>
     </div>
     <div>
-      <%= form.submit class: 'btn btn-secondary' %>   
+      <%= form.submit class: 'btn btn-secondary' %>  
+      <br> 
     </div>
   </div>
 <% end %>

@@ -5,7 +5,8 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all   
   end
   
-  def home 
+  def home  
+     @recipes = Recipe.all 
   end
 
   # GET - request page with form to create a recipe
