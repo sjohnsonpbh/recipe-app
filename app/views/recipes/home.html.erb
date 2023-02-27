@@ -1,21 +1,20 @@
-<h1>Cook a great recipe!</h1>
+<h1 class="text-center">Try a new Recipe</h1>
 
-<% Recipe.limit(6).each do |recipe| %>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+<div class="container">
+  <div class="row">
+    <% Recipe.limit(6).each do |recipe| %>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="card" style="width: 18rem;">  
+          <%= image_tag recipe.recipe_photo_path,  style: "width: 100%; margin-bottom: 1rem; border: 1px solid black", class: "img-fluid", alt: "image for recipe" %> 
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to recipe.title, recipe_path(recipe) %></h5>
+            <p class="card-text"><%= recipe.description.slice(0, 50) %>...</p><%= link_to "Continue Reading", recipe %>
+        </div>
+        <div class="card-body">
+          
+        </div>
+      </div>
+      </div>
+    <% end %>
   </div>
 </div>
-
-<% end %>
