@@ -13,7 +13,9 @@
     </p>
   <p class="card-text"><b>Description:</b> <%= @recipe.description %></p>
   <p class="card-text"><b>Ingredients:</b> <%= @recipe.ingredients %></p>
-  <p class="card-text"><b>Prep Time:</b> <%= pluralize(@recipe.prep_time, "hour") %> <%= pluralize(@recipe.prep_time_minutes, "minute") %></p>
+  <p class="card-text"><b>Prep Time:</b> 
+  <%= pluralize(@recipe.prep_time, "hour") %> 
+  <%= pluralize(@recipe.prep_time_minutes, "minute") %></p>
   <p class="card-text"><b>Cook Time:</b> <%= pluralize(@recipe.cook_time, "hour") %> <%= pluralize(@recipe.cook_time_minutes, "minute") %></p>
   <p class="card-text"><b>Thaw Time:</b> <%= pluralize(@recipe.thaw_time, "day") %></p>
 
@@ -22,10 +24,11 @@
     <% @recipe.categories.each do |category| %>
       <%= category.name %>
     <% end %>
-  </div>
+  <% if current_user == @recipe.user %>
+    </div>
       <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary"%>
-  </div>
-   <% if current_user == @recipe.user %>
+    </div>
+
     <%= button_to "Destroy", @recipe, method: :delete, class: "btn btn-danger" %>
   <% end %>
 </div>

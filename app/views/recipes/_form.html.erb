@@ -20,22 +20,24 @@
     </div>
     <div>
       <%= form.label :prep_time, class: "col-form-label"  %>
-      <%= form.select :prep_time, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> 
-      <%= "hour".pluralize(:prep_time) %> 
-      <%= form.select :prep_time_minutes, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> 
-      <%= "minute".pluralize(:prep_time_minutes) %>
+      <%= form.select :prep_time, select_array_set %> 
+       
+       <%= "hour".pluralize(@recipe.prep_time.to_i) %> 
+      <%= form.select :prep_time_minutes, select_array_set %> 
+      <%= "minute".pluralize(@recipe.prep_time_minutes.to_i) %>
     </div>
     <div>
       <%= form.label :cook_time, class: "col-form-label"  %>
-      <%= form.select :cook_time, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> 
-      <%= "hour".pluralize(:cook_time) %>  
-      <%= form.select :cook_time_minutes, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5,5], [6,6]] %> 
-       <%= "minute".pluralize(:cook_time_minutes) %>
+      <%= form.select :cook_time, select_array_set %> 
+      <%= "hour".pluralize(@recipe.cook_time.to_i) %>  
+      <%= form.select :cook_time_minutes, select_array_set %> 
+       <%= "minute".pluralize(@recipe.cook_time_minutes.to_i) %>
     </div>
     <div>
       <%= form.label :thaw_time, class: "col-form-label"  %>
       <%= form.select :thaw_time, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4]] %> 
-      <%= "day".pluralize(:thaw_time) %> 
+    
+     <%= "day".pluralize(@recipe.thaw_time.to_i) %>
        
     </div>
     <div>

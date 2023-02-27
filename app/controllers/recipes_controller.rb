@@ -28,6 +28,7 @@ class RecipesController < ApplicationController
 
   # GET - Edit Recipe
   def edit  
+    
   end
 
   def update 
@@ -49,9 +50,7 @@ class RecipesController < ApplicationController
   end
 
   private 
-  def prep_time_set 
-    prep_time_set = [[1, 1], [2, 2], [3, 3], [4, 4]]
-  end
+  
 
   def require_same_user 
     if helpers.current_user != @recipe.user 
