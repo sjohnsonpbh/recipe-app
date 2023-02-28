@@ -5,10 +5,11 @@
     <% Recipe.limit(6).each do |recipe| %>
       <div class="col-xs-12 col-md-6 col-lg-4">
         <div class="card" style="width: 18rem;">  
-          <%=link_to (image_tag recipe.recipe_photo_path,  style: "width: 100%; margin-bottom: 1rem; border: 1px solid black", class: "img-fluid", alt: "image for recipe"), recipe_path(recipe) %> 
+          <%=link_to (image_tag recipe.image,  style: "width: 100%; margin-bottom: 1rem; border: 1px solid black", class: "img-fluid", alt: "image for recipe"), recipe_path(recipe) %> 
           <div class="card-body">
             <h5 class="card-title"><%= link_to recipe.title, recipe_path(recipe) %></h5>
-            <p class="card-text"><%= recipe.description.slice(0, 50) %>...</p><%= link_to "Continue Reading", recipe %>
+            <p class="card-text"><%= recipe.description.slice(0, 50) %>...</p>
+            <%= link_to "Continue Reading", recipe %>
         </div>
         <div class="card-body">
           
