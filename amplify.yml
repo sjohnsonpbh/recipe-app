@@ -3,18 +3,14 @@ frontend:
     phases:
         preBuild:
             commands:
-                - bundle install
+                - bundle lock --add-platform ruby,
+                  bundle lock --add-platform x86_64-linux,
+                  gem install debug,
+                  bundle update,
+
         # IMPORTANT - Please verify your build commands
         build:
-            commands:
-                [
-                    gem update --system,
-                    bundle lock --add-platform ruby,
-                    bundle lock --add-platform x86_64-linux,
-                    gem install debug,
-                    bundle update,
-                    bundle install,
-                ]
+            commands: [bundle install]
     artifacts:
         # IMPORTANT - Please verify your build output directory
         baseDirectory: /
