@@ -8,6 +8,7 @@ frontend:
         build:
             commands:
                 [
+                    gem update --system,
                     bundle lock --add-platform ruby,
                     bundle lock --add-platform x86_64-linux,
                     gem install debug,
