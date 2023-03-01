@@ -4,7 +4,7 @@ frontend:
         preBuild:
             commands:
                 - bundle install
-        # IMPORTANT - Please verify your build commands
+        # IMPORTANT - Please verify your build commands here
         build:
             commands: []
     artifacts:
