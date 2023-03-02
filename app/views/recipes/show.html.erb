@@ -1,43 +1,46 @@
-
-
-<div class="card" style="width: 25rem;">
-   <h5 class="card-title"><%= @recipe.title %></h5>
-  <%= image_tag @recipe.image,  style: "border: 1px solid black"%> 
-  
-  <div class="card-body">
-   
-    <p class="card-header">
-      <% if @recipe.user %>
-        <div><%= link_to "Recipe By: #{@recipe.user.username}", @recipe.user %></div>
-      <% end %>
-    </p>
-  <p class="card-text"><b>Description:</b> <%= @recipe.description %></p>
-  <p class="card-text"><b>Ingredients:</b> <%= @recipe.ingredients %></p>
-  <p class="card-text"><b>Prep Time:</b> 
-  <%= pluralize(@recipe.prep_time, "hour") %> 
-  <%= pluralize(@recipe.prep_time_minutes, "minute") %></p>
-  <p class="card-text"><b>Cook Time:</b> <%= pluralize(@recipe.cook_time, "hour") %> <%= pluralize(@recipe.cook_time_minutes, "minute") %></p>
-  <p class="card-text"><b>Thaw Time:</b> <%= pluralize(@recipe.thaw_time, "day") %></p>
-
-  <div>
-    <b><%= "Category".pluralize(@recipe.categories.count) %>:</b>
-    <% @recipe.categories.each do |category| %>
-      <%= category.name %>
-    <% end %>
-  <% if current_user == @recipe.user %>
+<div class="row g-5 justify-content-evenly">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="row">
+        <div class="col-12">
+           <h5 class="card-title text-center"><%= @recipe.title %></h5>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div class="col-6 col-md-5">
+           <%= image_tag @recipe.image,  style: "border: 1px solid black", class: "card-img img-fluid rounded-start" %> 
+        </div>
+        <div class="col-6 col-md-7">
+          <div class="card-body">
+            <p>
+              <% if @recipe.user %>
+                <div><%= link_to "Recipe By: #{@recipe.user.username}", @recipe.user %></div>
+              <% end %>
+            </p>
+            <p class="card-text"><b>Description:</b> <%= @recipe.description %></p>
+            <p class="card-text"><b>Ingredients:</b> <%= @recipe.ingredients %></p>
+            <p class="card-text"><b>Prep Time:</b> 
+            <%= pluralize(@recipe.prep_time, "hour") %> 
+            <%= pluralize(@recipe.prep_time_minutes, "minute") %></p>
+            <p class="card-text"><b>Cook Time:</b> <%= pluralize(@recipe.cook_time, "hour") %> <%= pluralize(@recipe.cook_time_minutes, "minute") %></p>
+            <p class="card-text"><b>Thaw Time:</b> <%= pluralize(@recipe.thaw_time, "day") %></p>
+            <div>
+              <b><%= "Category".pluralize(@recipe.categories.count) %>:</b>
+              <% @recipe.categories.each do |category| %>
+                <%= category.name %>
+              <% end %>
+            </div>
+            <% if current_user == @recipe.user %>
+              <div>
+                <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary"%>
+              </div>
+              <div>
+                <%= button_to "Destroy", @recipe, method: :delete, class: "btn btn-danger" %>
+              </div>
+            <% end %>
+          </div>        
+        </div> 
+      </div>
     </div>
-      <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary"%>
-    </div>
-
-    <%= button_to "Destroy", @recipe, method: :delete, class: "btn btn-danger" %>
-  <% end %>
+  </div>
 </div>
-
-
-
-
-
-
-
-
- 

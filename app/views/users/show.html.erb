@@ -1,13 +1,17 @@
-<h1><%= @user.username %> Recipes</h1>
+<h2 class="text-center card-title"><%= @user.username %> Recipes</h2>
 
-<% @user.recipes.each do |recipe| %>
-  <h3><%= link_to recipe.title, recipe_path(recipe) %></h3>
-  <p><b>Description:</b> <%= recipe.description %></p>
-
-  
-  <div>
-    <%= link_to  recipe_path(recipe) do %>
-      <%= image_tag recipe.image, height:200, style: "border: 1px solid black"%> 
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-4">
+      <% @user.recipes.each do |recipe| %>
+        <h3><%= link_to recipe.title, recipe_path(recipe) %></h3>
+        <p><b>Description:</b> <%= recipe.description %></p>
+        <div>
+          <%= link_to  recipe_path(recipe) do %>
+            <%= image_tag recipe.image, height:200, style: "border: 1px solid black"%> 
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
