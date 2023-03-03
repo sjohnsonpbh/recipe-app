@@ -8,7 +8,7 @@
       </div>
       <div class="row g-0">
         <div class="col-6 col-md-5">
-           <%= image_tag @recipe.image,  style: "border: 1px solid black", class: "card-img img-fluid rounded-start" %> 
+           <%= link_to image_tag(@recipe.image_size_300, class: "card-img img-fluid rounded-start border border-dark border-2"), @recipe.image, target: "new" %> 
         </div>
         <div class="col-6 col-md-7">
           <div class="card-body">
