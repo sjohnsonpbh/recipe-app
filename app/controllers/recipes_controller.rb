@@ -51,7 +51,6 @@ class RecipesController < ApplicationController
 
   private 
   
-
   def require_same_user 
     if helpers.current_user != @recipe.user 
       flash[:notice] = "Not Authorized!"
