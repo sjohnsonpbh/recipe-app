@@ -1,6 +1,6 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.config.hosts << "recipe-app-production-6390.up.railway.app"
+
 
 
 Rails.application.configure do
