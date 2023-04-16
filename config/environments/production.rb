@@ -1,8 +1,5 @@
 require "active_support/core_ext/integer/time"
 
-
-
-
 Rails.application.configure do
   # error on railway - says to add the following in production
   hosts << "recipe-app-production-6390.up.railway.app"
