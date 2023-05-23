@@ -3,10 +3,10 @@ frontend:
     phases:
         preBuild:
             commands:
-                - bundle install
+                - gem install bundler
         # IMPORTANT - Please verify your build commands here
         build:
-            commands: []
+            commands: [- bundle install]
     artifacts:
         # IMPORTANT - Please verify your build output directory
         baseDirectory: /
