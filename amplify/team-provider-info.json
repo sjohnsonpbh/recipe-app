@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-recipeapp-dev-115915-authRole",
+      "UnauthRoleArn": "arn:aws:iam::637574204137:role/amplify-recipeapp-dev-115915-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::637574204137:role/amplify-recipeapp-dev-115915-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-recipeapp-dev-115915-deployment",
+      "UnauthRoleName": "amplify-recipeapp-dev-115915-unauthRole",
+      "StackName": "amplify-recipeapp-dev-115915",
+      "StackId": "arn:aws:cloudformation:us-east-1:637574204137:stack/amplify-recipeapp-dev-115915/27019960-f98b-11ed-b4b6-0a7d4fe4baf3",
+      "AmplifyAppId": "d2kugwk5h4ove9"
+    }
+  }
+}
