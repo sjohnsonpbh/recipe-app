@@ -18,6 +18,8 @@ class RecipesController < ApplicationController
 
   # POST - create recipe
   def create     
+    puts Rails.application.credentials.dig(:aws, :access_key_id) 
+    
     @recipe = helpers.current_user.recipes.new(recipe_params)
     if @recipe.save 
       flash[:notice] = "Recipe successfully saved"
