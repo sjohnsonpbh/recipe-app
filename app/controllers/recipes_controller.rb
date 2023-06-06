@@ -4,11 +4,11 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   before_action :require_same_user, only: [:destroy]
   def index 
-    debugger byebug
     @recipes = Recipe.all   
   end
   
   def home  
+    byebug debugger
      @recipes = Recipe.all 
   end
 
