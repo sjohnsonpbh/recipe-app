@@ -18,14 +18,14 @@ class RecipesController < ApplicationController
 
   # POST - create recipe
   def create     
-    @recipe = helpers.current_user.recipes.new(recipe_params)
-      if @recipe.save 
-        flash[:notice] = "Recipe successfully saved"
-        redirect_to @recipe
-      else 
-        flash[:notice] = "There was an error saving the recipe."
-        render :new, status: :unprocessable_entity 
-      end
+    # @recipe = helpers.current_user.recipes.new(recipe_params)
+    #   if @recipe.save 
+    #     flash[:notice] = "Recipe successfully saved"
+    #     redirect_to @recipe
+    #   else 
+    #     flash[:notice] = "There was an error saving the recipe."
+    #     render :new, status: :unprocessable_entity 
+    #   end
   end
 
   # GET - Edit Recipe
@@ -54,9 +54,9 @@ class RecipesController < ApplicationController
   private 
   
   def require_same_user 
-    if helpers.current_user != @recipe.user 
-      flash[:notice] = "Not Authorized!"
-      redirect_to helpers.current_user
+    # if helpers.current_user != @recipe.user 
+    #   flash[:notice] = "Not Authorized!"
+    #   redirect_to helpers.current_user
     end
   end
   

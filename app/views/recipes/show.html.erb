@@ -30,14 +30,18 @@
                 <%= category.name %>
               <% end %>
             </div>
-            <% if current_user == @recipe.user %>
+            <%
+=begin%>
+ <% if current_user == @recipe.user %>
               <div>
                 <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary"%>
               </div>
               <div>
                 <%= button_to "Destroy", @recipe, method: :delete, class: "btn btn-danger" %>
               </div>
-            <% end %>
+            <% end %> 
+<%
+=end%>
           </div>        
         </div> 
       </div>
