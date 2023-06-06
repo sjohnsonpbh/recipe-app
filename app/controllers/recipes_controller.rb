@@ -57,7 +57,7 @@ class RecipesController < ApplicationController
     # if helpers.current_user != @recipe.user 
     #   flash[:notice] = "Not Authorized!"
     #   redirect_to helpers.current_user
-    end
+    # end
   end
   
   def recipe_params 
