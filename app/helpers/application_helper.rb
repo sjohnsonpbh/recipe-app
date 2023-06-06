@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def current_user 
-    # User.find(session[:user_id]) if session[:user_id] rescue ActiveRecord::RecordNotFound
+    User.find(session[:user_id]) if session[:user_id] rescue ActiveRecord::RecordNotFound
   end
 
   def logged_in? 
