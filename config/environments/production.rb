@@ -4,7 +4,7 @@ Rails.application.configure do
   # error on railway - says to add the following in production
   # hosts << "recipe-app-production-6390.up.railway.app"
   
-
+  config.active_storage.variant_processor = :mini_magick
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
