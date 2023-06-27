@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # error on railway - says to add the following in production
-  # hosts << "recipe-app-production-ae63.up.railway.app/"
+  hosts << "recipe-app-production-ae63.up.railway.app/"
   
   config.active_storage.variant_processor = :mini_magick
   # Settings specified here will take precedence over those in config/application.rb.
